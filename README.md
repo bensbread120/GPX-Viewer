@@ -1,40 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# GPX Route Visualizer
+
+This project is a simple GPX route visualizer built with **Next.js**, **TypeScript**, **Tailwind CSS**, and **Mapbox GL JS**. It loads a `.gpx` file, parses it, and displays the route on an interactive Mapbox map with start and end markers, as well as a live-updating progress marker.
+
+---
+
+## Features
+
+- **GPX Parsing** using `xml2js`
+- **Interactive Map** with Mapbox GL JS
+- **Start and End Markers**
+- **Progress Marker** that animates along the route
+- Built with **Next.js**, **React**, and **Tailwind CSS**
+
+---
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/)
+- [xml2js](https://www.npmjs.com/package/xml2js) (for GPX parsing)
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the Repository
 
 ```bash
-npm run dev
+git clone https://github.com//bensbread120/GPX-Viewer.git
+cd GPX-Viewer
+
+npm install
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+Note you must have a mapbox account and access token to run this project, when you have created this add a .env.local file to the root of this project with the folling syntax:
+```javascript
+NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=your_mapbox_token_here
+```
+Update the gpx file that you'd like to render add this to the public/gpx folder and add the url like below to the map component
+```html
+<Map gpxFileUrl="/your_file.gpx" />
+```
+Once you've done these things you're ready to go:
+```bash
+npm run dev
+```
