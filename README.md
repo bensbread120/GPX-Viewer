@@ -49,3 +49,6 @@ Once you've done these things you're ready to go:
 ```bash
 npm run dev
 ```
+
+### Screenshots
+![alt text](image.png)

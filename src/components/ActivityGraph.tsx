@@ -108,7 +108,7 @@ export const ActivityGraph = ({ gpxFileUrl, setCurrentIndex }: ActivityProps ) =
 
       {/* Graph */}
       {selectedMetrics.map((key) => (
-      <div className="overflow-x-auto bg-white shadow rounded-lg py-0">
+      <div className="overflow-x-auto bg-white shadow rounded-lg pt-3">
         {/* <LineChart
           width={800}
           height={350}
