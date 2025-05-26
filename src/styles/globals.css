@@ -24,3 +24,11 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.follow-marker {
+  width: 16px;
+  height: 16px;
+  background-color: purple;
+  border-radius: 50%;
+  border: 2px solid white;
+}

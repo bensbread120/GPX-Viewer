@@ -29,7 +29,12 @@ const metrics = {
   speed: { label: 'Speed (kph)', color: '#ffa500', axis: 'right' },
 };
 
-export const ActivityGraph = ({ gpxFileUrl }: { gpxFileUrl: string }) => {
+interface ActivityProps {
+  gpxFileUrl: string;
+  setCurrentIndex: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export const ActivityGraph = ({ gpxFileUrl, setCurrentIndex }: ActivityProps ) => {
   const [data, setData] = useState<PointData[]>([]);
   const [selectedMetrics, setSelectedMetrics] = useState<string[]>([
     'heartRate',
@@ -108,6 +113,12 @@ export const ActivityGraph = ({ gpxFileUrl }: { gpxFileUrl: string }) => {
           height={350}
           data={data}
           margin={{ top: 20, right: 40, left: 20, bottom: 5 }}
+          onMouseMove={(e) => {
+            if (e && e.activeTooltipIndex != null) {
+              setCurrentIndex(e.activeTooltipIndex);
+            }
+          }}
+          onMouseLeave={() => setCurrentIndex(-1)}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="time" tick={false} />
