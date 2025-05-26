@@ -14,9 +14,9 @@ export default function HomePage() {
     <main className="p-4 bg-gray-400">
       <h1 className="text-xl font-bold mb-4">Mapbox in Next.js</h1>
       <div className='max-w-7xl mx-auto px-4 py-20 p-6 border rounded-3xl bg-gray-500'>
-        <h1 className="text-xl font-bold mb-4">Criterium Racing In Geelong</h1>
-        <Map gpxFileUrl='gpx/Eastern_Gardens_B_grade.gpx' currentIndex={currentWaypoint}/>
-        <ActivityGraph gpxFileUrl='gpx/Eastern_Gardens_B_grade.gpx' setCurrentIndex={setCurrentWaypoint}/>
+        <h1 className="text-xl font-bold mb-4">Curve Border Run</h1>
+        <Map gpxFileUrl='gpx/Not_exactly_the_Border_Run.gpx' currentIndex={currentWaypoint}/>
+        <ActivityGraph gpxFileUrl='gpx/Not_exactly_the_Border_Run.gpx' setCurrentIndex={setCurrentWaypoint}/>
       </div>
     </main>
   );

@@ -107,8 +107,9 @@ export const ActivityGraph = ({ gpxFileUrl, setCurrentIndex }: ActivityProps ) =
       </div>
 
       {/* Graph */}
-      <div className="overflow-x-auto bg-white shadow rounded-lg">
-        <LineChart
+      {selectedMetrics.map((key) => (
+      <div className="overflow-x-auto bg-white shadow rounded-lg py-0">
+        {/* <LineChart
           width={800}
           height={350}
           data={data}
@@ -137,8 +138,39 @@ export const ActivityGraph = ({ gpxFileUrl, setCurrentIndex }: ActivityProps ) =
               dot={false}
             />
           ))}
+        </LineChart> */}
+        <LineChart
+          width={800}
+          height={150}
+          data={data}
+          margin={{ top: 20, right: 40, left: 20, bottom: 5 }}
+          onMouseMove={(e) => {
+            if (e && e.activeTooltipIndex != null) {
+              setCurrentIndex(e.activeTooltipIndex);
+            }
+          }}
+          onMouseLeave={() => setCurrentIndex(-1)}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="time" tick={false} />
+          <YAxis yAxisId="left" />
+          <YAxis yAxisId="right" orientation="right" />
+          <Tooltip />
+          <Legend />
+          
+            <Line
+              key={key}
+              yAxisId={metrics[key as keyof typeof metrics].axis}
+              type="monotone"
+              dataKey={key}
+              stroke={metrics[key as keyof typeof metrics].color}
+              name={metrics[key as keyof typeof metrics].label}
+              dot={false}
+            />
+          
         </LineChart>
       </div>
+      ))}
     </div>
   );
 };
